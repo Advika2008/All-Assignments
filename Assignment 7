@@ -1,1 +1,52 @@
+#include <stdio.h>
+#include <string.h>
 
+struct sensor
+{
+int id;
+char type[20];
+float value,min,max;
+char status[10];
+};
+int main()
+{
+int n,i,abnormal = 0;
+struct sensor s[10];
+printf("enter number of sensors:");
+scanf("%d", &n);
+
+for(i = 0; i<n; i++)
+{
+printf("\n enter id:");
+scanf("%d", &s[i].id);
+printf("\n enter type ");
+scanf("%s", &s[i].type);
+printf("\n enter value:");
+scanf("%f", &s[i].value);
+printf("\n enter min:");
+scanf("%f", &s[i].min);
+printf("\n enter max:");
+scanf("%f", &s[i].max);
+
+float lower = s[i].min - (0.10*s[i].min);
+float upper = s[i].max + (0.10*s[i].max);
+
+if (s[i].value >= s[i]..min && s[i].value<= s[i].max)
+{
+strcpy(s[i].status, "normal");
+}
+else if (s[i].value >= lower && s[i].value <= upper)
+{
+strcpy (s[i].status, "warning");
+abnormal++;
+}else{
+strcpy(s[i].status, "anomaly");
+}
+printf("\n---sensor report---\n");
+printf(" id\t type\t value\t range\t status\n");
+printf("%d\t %s\t %.2f\t %.2f\t % .2f\t %s\n", s[i].id, s[i].type, s[i].value, s[i].min, s[i].max, s[i].status);
+}
+printf("\n total abnormal sensors: %d\n", abnormal);
+return 0;
+}
+      
