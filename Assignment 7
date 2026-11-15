@@ -19,7 +19,7 @@ for(i = 0; i<n; i++)
 {
 printf("\n enter id:");
 scanf("%d", &s[i].id);
-printf("\n enter type ");
+printf("\n enter type: ");
 scanf("%s", &s[i].type);
 printf("\n enter value:");
 scanf("%f", &s[i].value);
